@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class ConexionBBDD {
 	public static Connection getConexion() {
-		String servidor = "jdbc:mysql localhost:3306/cine";
+		String servidor = "jdbc:mysql://localhost:3306/cine";
 
 		String usuario = "root";
-		String contraseña = "root";
+		String contraseña = "practicaroot";
 		try {
 			Connection conexion = DriverManager.getConnection(servidor, usuario, contraseña);
 			return conexion;
