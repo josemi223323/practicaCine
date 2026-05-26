@@ -1,11 +1,29 @@
 package modelo;
 
-public class peliculasDTO {
+public class PeliculaDTO {
 	private int id;
 	private String titulo;
 	private String genero;
 	private int duracion;
 	private int anio;
+	public PeliculaDTO(int id, String titulo, String genero, int duracion, int anio) {
+		this.id = id;
+		this.titulo = titulo;
+		this.genero = genero;
+		this.duracion = duracion;
+		this.anio = anio;
+	}
+	public PeliculaDTO(String nombre, String genero2, int duracion2, int anio2) {
+		this.titulo = titulo;
+		this.genero = genero;
+		this.duracion = duracion;
+		this.anio = anio;
+	}
+	@Override
+	public String toString() {
+		return "PeliculaDTO [id=" + id + ", titulo=" + titulo + ", genero=" + genero + ", duracion=" + duracion
+				+ ", anio=" + anio + "]";
+	}
 	public int getId() {
 		return id;
 	}
