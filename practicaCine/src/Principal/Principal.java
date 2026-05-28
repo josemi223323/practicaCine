@@ -2,14 +2,15 @@ package Principal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.SQLException;
 
+import utils.ConexionBBDD;
 import vista.VistaPelicula;
 
 public class Principal {
 	public static void main(String[] args) {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
-		
-		// Declarar aquí el array o ArrayList de Pokemon
 
 		boolean salir = false;
 		do {
@@ -28,6 +29,7 @@ public class Principal {
 
 			switch (opcion) {
 			case 1:
+				
 				System.out.println("=== Peliculas  ===");
 				VistaPelicula vistaPelicula = new VistaPelicula();
 				vistaPelicula.menuPeliculas();

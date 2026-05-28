@@ -13,7 +13,7 @@ public class PeliculaDTO {
 		this.duracion = duracion;
 		this.anio = anio;
 	}
-	public PeliculaDTO(String nombre, String genero2, int duracion2, int anio2) {
+	public PeliculaDTO(String titulo, String genero, int duracion, int anio) {
 		this.titulo = titulo;
 		this.genero = genero;
 		this.duracion = duracion;
@@ -22,7 +22,7 @@ public class PeliculaDTO {
 	@Override
 	public String toString() {
 		return "PeliculaDTO [id=" + id + ", titulo=" + titulo + ", genero=" + genero + ", duracion=" + duracion
-				+ ", anio=" + anio + "]";
+				+ ", año=" + anio + "]";
 	}
 	public int getId() {
 		return id;

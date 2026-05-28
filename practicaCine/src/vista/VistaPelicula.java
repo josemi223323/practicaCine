@@ -15,7 +15,7 @@ public class VistaPelicula {
 			System.out.println("2. Insertar Pelicula ");
 			System.out.println("3. Modificar Categoria ");
 			System.out.println("4. Borrar Categoria");
-			System.out.println("9. Salir al menu principal");
+			System.out.println("5. Salir al menu principal");
 			int opcion = Lecturas.leerEnteroEnRango("Introduce una opción: ", 1, 9);
 			switch (opcion) {
 			case 1:
@@ -28,17 +28,50 @@ public class VistaPelicula {
 				break;
 			case 3:
 				System.out.println("= MODIFICAR CATEGORIA (Por hacer) =");
-		
+				actualizarPelicula();
 				break;
 			case 4:
 				System.out.println("= BORRAR CATEGORIA (Por hacer) =");
-			
+				borrarPelicula();
 				break;
-			case 9:
+			case 5:
 				salir = true;
 				break;
 			}
 		} while (!salir);
+	}
+
+
+	private void borrarPelicula() {
+		
+		PeliculaControlador controladorPelicula = new PeliculaControlador();
+		System.out.println("introduce los datos de la pelicula: ");
+		int idPelicula = Lecturas.leerEntero("introduce el id de la pelicula que quieres actualizar");
+		Boolean seEjecuto = controladorPelicula.borrarPelicula(idPelicula);
+		if(seEjecuto) {
+			System.out.println("los datos se actualizaron");
+		}else {
+			System.out.println("hubo al insertar los datos");
+		}
+	}
+
+
+	private void actualizarPelicula() {
+		PeliculaControlador controladorPelicula = new PeliculaControlador();
+		System.out.println("introduce los datos de la pelicula: ");
+		int idPelicula = Lecturas.leerEntero("introduce el id de la pelicula que quieres actualizar");
+		String nombre = Lecturas.leerString("Nombre de la pelicula");
+		String genero = Lecturas.leerString("genero de la pelicula");
+		int duracion = Lecturas.leerEntero("introduce la duracion de la pelicula");
+		int anio = Lecturas.leerEntero("introduce el año de lanzamiento");
+		PeliculaDTO nuevaPelicula = new PeliculaDTO(idPelicula,nombre,genero,duracion,anio);
+		Boolean seEjecuto = controladorPelicula.actualizarPelicula(nuevaPelicula);
+		if(seEjecuto) {
+			System.out.println("los datos se actualizaron");
+		}else {
+			System.out.println("hubo al insertar los datos");
+		}
+		
 	}
 
 
@@ -50,7 +83,12 @@ public class VistaPelicula {
 		int duracion = Lecturas.leerEntero("introduce la duracion de la pelicula");
 		int anio = Lecturas.leerEntero("introduce el año de lanzamiento");
 		PeliculaDTO nuevaPelicula = new PeliculaDTO(nombre,genero,duracion,anio);
-		controladorPelicula.insertarPelicula(nuevaPelicula);
+		Boolean seEjecuto = controladorPelicula.insertarPelicula(nuevaPelicula);
+		if(seEjecuto) {
+			System.out.println("los datos se actualizaron");
+		}else {
+			System.out.println("hubo al insertar los datos");
+		}
 		
 	}
 

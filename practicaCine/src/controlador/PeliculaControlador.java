@@ -11,9 +11,19 @@ public class PeliculaControlador {
 		return peliculaDAO.listarPeliculas();
 	}
 
-	public ArrayList<PeliculaDTO> insertarPelicula(PeliculaDTO nuevaPelicula) {
+	public Boolean insertarPelicula(PeliculaDTO nuevaPelicula) {
 		PeliculaDAO peliculaDAO = new PeliculaDAO();
 		return peliculaDAO.insertarPeliculas(nuevaPelicula);
+	}
+
+	public Boolean actualizarPelicula(PeliculaDTO nuevaPelicula) {
+		PeliculaDAO peliculaDAO = new PeliculaDAO();
+		return peliculaDAO.actualizarPeliculas(nuevaPelicula);
+	}
+
+	public Boolean borrarPelicula(int idPelicula) {
+		PeliculaDAO peliculaDAO = new PeliculaDAO();
+		return peliculaDAO.borrarPeliculas(idPelicula);
 	}
 
 }
