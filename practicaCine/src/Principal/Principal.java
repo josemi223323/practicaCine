@@ -6,12 +6,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import utils.ConexionBBDD;
+import vista.VistaCliente;
 import vista.VistaPelicula;
 
 public class Principal {
 	public static void main(String[] args) {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
-
 		boolean salir = false;
 		do {
 			System.out.println("1 Peliculas");
@@ -33,6 +33,11 @@ public class Principal {
 				System.out.println("=== Peliculas  ===");
 				VistaPelicula vistaPelicula = new VistaPelicula();
 				vistaPelicula.menuPeliculas();
+				break;
+			case 2:
+				System.out.println("=== Cliente  ===");
+				VistaCliente vistaCliente = new VistaCliente();
+				vistaCliente.menuCliente();
 				break;
 			
 			default:

@@ -2,25 +2,27 @@ package vista;
 
 import java.util.ArrayList;
 
+import controlador.ClienteControlador;
 import controlador.PeliculaControlador;
+import modelo.ClienteDTO;
 import modelo.PeliculaDTO;
 import utils.Lecturas;
 
-public class VistaPelicula {
-	public void menuPeliculas() {
+public class VistaCliente {
+	public void menuCliente() {
 		boolean salir = false;
 		do {
-			System.out.println("\n=== CATEGORIAS ===");
-			System.out.println("1. Ver todas las peliculas");
-			System.out.println("2. Insertar Pelicula ");
-			System.out.println("3. Modificar Categoria ");
-			System.out.println("4. Borrar Categoria");
+			System.out.println("\n=== CLIENTES ===");
+			System.out.println("1. Ver todos los clientes ");
+			System.out.println("2. Insertar Cliente ");
+			System.out.println("3. Modificar Cliente ");
+			System.out.println("4. Borrar Cliente");
 			System.out.println("5. Salir al menu principal");
 			int opcion = Lecturas.leerEnteroEnRango("Introduce una opción: ", 1, 9);
 			switch (opcion) {
 			case 1:
 				System.out.println("= VER TODOS LAS CATEGORIAS =");
-				listar();
+				listarClientes();
 				break;
 			case 2:
 				System.out.println("= INSERTAR Pelicula =");
@@ -76,14 +78,13 @@ public class VistaPelicula {
 
 
 	private void insertarPelicula() {
-		PeliculaControlador controladorPelicula = new PeliculaControlador();
-		System.out.println("introduce los datos de la nueva pelicula: ");
-		String nombre = Lecturas.leerString("Nombre de la pelicula");
-		String genero = Lecturas.leerString("genero de la pelicula");
-		int duracion = Lecturas.leerEntero("introduce la duracion de la pelicula");
-		int anio = Lecturas.leerEntero("introduce el año de lanzamiento");
-		PeliculaDTO nuevaPelicula = new PeliculaDTO(nombre,genero,duracion,anio);
-		Boolean seEjecuto = controladorPelicula.insertarPelicula(nuevaPelicula);
+		ClienteControlador clienteControlador = new ClienteControlador();
+		System.out.println("introduce los datos del cliente");
+		String nombre = Lecturas.leerString("introduce el nombre del cliente");
+		String email = Lecturas.leerString("introduce el correo del cliente");
+		int telefono = Lecturas.leerEntero("introduce el numero de telefono");
+		ClienteDTO nuevoCliente = new ClienteDTO(nombre,email,telefono);
+		Boolean seEjecuto = ClienteControlador.insertartarCliente(nuevoCliente);
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
@@ -93,13 +94,12 @@ public class VistaPelicula {
 	}
 
 
-	private void listar() {
-		PeliculaControlador controladorPelicula = new PeliculaControlador();
-		ArrayList<PeliculaDTO> peliculaDTO = controladorPelicula.listarPeliculas();
-		for(PeliculaDTO pelicula : peliculaDTO) {
-			System.out.println(pelicula.toString());
+	private void listarClientes() {
+		ClienteControlador clienteControlador = new ClienteControlador();
+		ArrayList<ClienteDTO> ListaClientes = clienteControlador.listarClientes();
+		for(ClienteDTO cliente: ListaClientes) {
+			System.out.println(cliente.toString());
 		}
-		
 	}
 
 	
