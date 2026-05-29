@@ -27,7 +27,7 @@ public class ClienteDAO {
 				String nombre = rs.getString("nombre");
 				String email = rs.getString("email");
 				int telefono = rs.getInt("telefono");
-				ClienteDTO clienteNuevo = new ClienteDTO(id,nombre,email,telefono);
+				ClienteDTO clienteNuevo = new ClienteDTO(id, nombre, email, telefono);
 				listaClientes.add(clienteNuevo);
 			}
 
@@ -43,40 +43,34 @@ public class ClienteDAO {
 	public Boolean insertarClientes(ClienteDTO nuevoCliente) {
 		String telefonoTexto = Integer.toString(nuevoCliente.getTelefono());
 		String correoTexto = nuevoCliente.getEmail();
-		String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" +
-				  "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
+		String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" + "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
 		Pattern pattern = Pattern.compile(emailPattern);
 		if (correoTexto != null) {
 			Matcher matcher = pattern.matcher(correoTexto);
-		if (matcher.matches()) {
-		}else {
-			 System.out.println("El correo no es valido");
-			 return false;
+			if (matcher.matches()) {
+			} else {
+				System.out.println("El correo no es valido");
+				return false;
+			}
 		}
-		}
-		if(telefonoTexto.length() > 9 || telefonoTexto.length() < 9) {
+		if (telefonoTexto.length() > 9 || telefonoTexto.length() < 9) {
 			System.out.println("el numero tiene que tener 9 digitos");
 			return false;
 		}
 
 		Connection conexion = ConexionBBDD.getConexion();
 		try {
-			String sql = "INSERT INTO cine.clientes(nombre,email,telefono) VALUES (?'?'?)";
+			String sql = "INSERT INTO cine.clientes(nombre,email,telefono) VALUES (?,?,?)";
 			PreparedStatement ps = conexion.prepareStatement(sql);
 			ps.setString(1, nuevoCliente.getNombre());
 			ps.setString(2, nuevoCliente.getEmail());
 			ps.setInt(3, nuevoCliente.getTelefono());
 			int rs = ps.executeUpdate();
 			conexion.close();
-			if(rs > 0) {
+			if (rs > 0) {
 				return true;
 			}
 			return false;
-
-			
-
-			
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -85,4 +79,64 @@ public class ClienteDAO {
 
 	}
 
+	public Boolean actualizarClientes(ClienteDTO nuevoCliente) {
+		String telefonoTexto = Integer.toString(nuevoCliente.getTelefono());
+		String correoTexto = nuevoCliente.getEmail();
+		String emailPattern = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@" + "[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
+		Pattern pattern = Pattern.compile(emailPattern);
+		if (correoTexto != null) {
+			Matcher matcher = pattern.matcher(correoTexto);
+			if (matcher.matches()) {
+			} else {
+				System.out.println("El correo no es valido");
+				return false;
+			}
+		}
+		if (telefonoTexto.length() > 9 || telefonoTexto.length() < 9) {
+			System.out.println("el numero tiene que tener 9 digitos");
+			return false;
+		}
+
+		Connection conexion = ConexionBBDD.getConexion();
+		try {
+			String sql = "UPDATE cine.clientes SET nombre=?, email=?, telefono=? WHERE id=?";
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setString(1, nuevoCliente.getNombre());
+			ps.setString(2, nuevoCliente.getEmail());
+			ps.setInt(3, nuevoCliente.getTelefono());
+			ps.setInt(4, nuevoCliente.getId());
+			int rs = ps.executeUpdate();
+			conexion.close();
+			if (rs > 0) {
+				return true;
+			}
+			return false;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+
+		}
+
+	}
+
+	public Boolean borrarClientes(int idCliente) {
+		Connection conexion = ConexionBBDD.getConexion();
+		try {
+			String sql = "DELETE FROM cine.clientes WHERE id=?";
+			PreparedStatement ps = conexion.prepareStatement(sql);
+			ps.setInt(1, idCliente);
+			int rs = ps.executeUpdate();
+			conexion.close();
+			if (rs > 0) {
+				return true;
+			}
+			return false;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+
+		}
+	}
 }

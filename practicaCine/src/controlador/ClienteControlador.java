@@ -12,9 +12,19 @@ public class ClienteControlador {
 		return clienteDAO.listarClientes();
 	}
 
-	public static Boolean insertartarCliente(ClienteDTO nuevoCliente) {
+	public Boolean insertartarCliente(ClienteDTO nuevoCliente) {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		return clienteDAO.insertarClientes(nuevoCliente);
+	}
+
+	public Boolean actualizarCliente(ClienteDTO nuevoCliente) {
+		ClienteDAO clienteDAO = new ClienteDAO();
+		return clienteDAO.actualizarClientes(nuevoCliente);
+	}
+
+	public Boolean borrarPelicula(int idCliente) {
+		ClienteDAO clienteDAO = new ClienteDAO();
+		return clienteDAO.borrarClientes(idCliente);
 	}
 
 }

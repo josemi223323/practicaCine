@@ -26,15 +26,15 @@ public class VistaCliente {
 				break;
 			case 2:
 				System.out.println("= INSERTAR Pelicula =");
-				insertarPelicula();
+				insertarCliente();
 				break;
 			case 3:
 				System.out.println("= MODIFICAR CATEGORIA (Por hacer) =");
-				actualizarPelicula();
+				actualizarCliente();
 				break;
 			case 4:
 				System.out.println("= BORRAR CATEGORIA (Por hacer) =");
-				borrarPelicula();
+				borrarCliente();
 				break;
 			case 5:
 				salir = true;
@@ -44,12 +44,12 @@ public class VistaCliente {
 	}
 
 
-	private void borrarPelicula() {
+	private void borrarCliente() {
 		
-		PeliculaControlador controladorPelicula = new PeliculaControlador();
+		ClienteControlador clienteControlador = new ClienteControlador();
 		System.out.println("introduce los datos de la pelicula: ");
-		int idPelicula = Lecturas.leerEntero("introduce el id de la pelicula que quieres actualizar");
-		Boolean seEjecuto = controladorPelicula.borrarPelicula(idPelicula);
+		int idCliente = Lecturas.leerEntero("introduce el id de la pelicula que quieres borrar");
+		Boolean seEjecuto = clienteControlador.borrarPelicula(idCliente);
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
@@ -58,16 +58,15 @@ public class VistaCliente {
 	}
 
 
-	private void actualizarPelicula() {
-		PeliculaControlador controladorPelicula = new PeliculaControlador();
-		System.out.println("introduce los datos de la pelicula: ");
-		int idPelicula = Lecturas.leerEntero("introduce el id de la pelicula que quieres actualizar");
-		String nombre = Lecturas.leerString("Nombre de la pelicula");
-		String genero = Lecturas.leerString("genero de la pelicula");
-		int duracion = Lecturas.leerEntero("introduce la duracion de la pelicula");
-		int anio = Lecturas.leerEntero("introduce el año de lanzamiento");
-		PeliculaDTO nuevaPelicula = new PeliculaDTO(idPelicula,nombre,genero,duracion,anio);
-		Boolean seEjecuto = controladorPelicula.actualizarPelicula(nuevaPelicula);
+	private void actualizarCliente() {
+		ClienteControlador clienteControlador = new ClienteControlador();
+		System.out.println("introduce los datos del cliente");
+		int idCliente = Lecturas.leerEntero("introduce un id");
+		String nombre = Lecturas.leerString("introduce el nombre del cliente");
+		String email = Lecturas.leerString("introduce el correo del cliente");
+		int telefono = Lecturas.leerEntero("introduce el numero de telefono");
+		ClienteDTO nuevoCliente = new ClienteDTO(idCliente,nombre,email,telefono);
+		Boolean seEjecuto = clienteControlador.actualizarCliente(nuevoCliente);
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
@@ -77,14 +76,14 @@ public class VistaCliente {
 	}
 
 
-	private void insertarPelicula() {
+	private void insertarCliente() {
 		ClienteControlador clienteControlador = new ClienteControlador();
 		System.out.println("introduce los datos del cliente");
 		String nombre = Lecturas.leerString("introduce el nombre del cliente");
 		String email = Lecturas.leerString("introduce el correo del cliente");
 		int telefono = Lecturas.leerEntero("introduce el numero de telefono");
 		ClienteDTO nuevoCliente = new ClienteDTO(nombre,email,telefono);
-		Boolean seEjecuto = ClienteControlador.insertartarCliente(nuevoCliente);
+		Boolean seEjecuto = clienteControlador.insertartarCliente(nuevoCliente);
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
