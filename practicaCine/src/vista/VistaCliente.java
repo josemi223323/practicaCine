@@ -19,19 +19,19 @@ public class VistaCliente {
 			int opcion = Lecturas.leerEnteroEnRango("Introduce una opción: ", 1, 9);
 			switch (opcion) {
 			case 1:
-				System.out.println("= VER TODOS LAS CATEGORIAS =");
+				System.out.println("= VER TODOS LOS CLIENTES =");
 				listarClientes();
 				break;
 			case 2:
-				System.out.println("= INSERTAR Pelicula =");
+				System.out.println("= INSERTAR Cliente =");
 				insertarCliente();
 				break;
 			case 3:
-				System.out.println("= MODIFICAR CATEGORIA (Por hacer) =");
+				System.out.println("= MODIFICAR Cliente  =");
 				actualizarCliente();
 				break;
 			case 4:
-				System.out.println("= BORRAR CATEGORIA (Por hacer) =");
+				System.out.println("= BORRAR Cliente  =");
 				borrarCliente();
 				break;
 			case 5:
@@ -51,7 +51,7 @@ public class VistaCliente {
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
-			System.out.println("hubo al insertar los datos");
+			System.out.println("hubo un error al insertar los datos");
 		}
 	}
 
@@ -68,7 +68,7 @@ public class VistaCliente {
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
-			System.out.println("hubo al insertar los datos");
+			System.out.println("hubo un error al insertar los datos");
 		}
 		
 	}
@@ -85,7 +85,7 @@ public class VistaCliente {
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
-			System.out.println("hubo al insertar los datos");
+			System.out.println("hubo un error al insertar los datos");
 		}
 		
 	}

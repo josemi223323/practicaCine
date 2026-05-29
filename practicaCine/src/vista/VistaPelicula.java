@@ -19,7 +19,7 @@ public class VistaPelicula {
 			int opcion = Lecturas.leerEnteroEnRango("Introduce una opción: ", 1, 9);
 			switch (opcion) {
 			case 1:
-				System.out.println("= VER TODOS LAS CATEGORIAS =");
+				System.out.println("= VER TODOS LAS PELICULAS =");
 				listar();
 				break;
 			case 2:
@@ -27,11 +27,11 @@ public class VistaPelicula {
 				insertarPelicula();
 				break;
 			case 3:
-				System.out.println("= MODIFICAR CATEGORIA (Por hacer) =");
+				System.out.println("= MODIFICAR pelicula =");
 				actualizarPelicula();
 				break;
 			case 4:
-				System.out.println("= BORRAR CATEGORIA (Por hacer) =");
+				System.out.println("= BORRAR pelicula =");
 				borrarPelicula();
 				break;
 			case 5:
