@@ -61,7 +61,7 @@ public class PeliculaDAO {
 		return false;
 	}
 
-	public static Boolean actualizarPeliculas(PeliculaDTO nuevaPelicula) {
+	public Boolean actualizarPeliculas(PeliculaDTO nuevaPelicula) {
 		Connection conexion = ConexionBBDD.getConexion();
 
 		try {

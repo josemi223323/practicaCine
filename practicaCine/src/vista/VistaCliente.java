@@ -3,9 +3,7 @@ package vista;
 import java.util.ArrayList;
 
 import controlador.ClienteControlador;
-import controlador.PeliculaControlador;
 import modelo.ClienteDTO;
-import modelo.PeliculaDTO;
 import utils.Lecturas;
 
 public class VistaCliente {
@@ -83,7 +81,7 @@ public class VistaCliente {
 		String email = Lecturas.leerString("introduce el correo del cliente");
 		int telefono = Lecturas.leerEntero("introduce el numero de telefono");
 		ClienteDTO nuevoCliente = new ClienteDTO(nombre,email,telefono);
-		Boolean seEjecuto = clienteControlador.insertartarCliente(nuevoCliente);
+		Boolean seEjecuto = clienteControlador.insertarCliente(nuevoCliente);
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {

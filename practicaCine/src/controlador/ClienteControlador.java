@@ -12,7 +12,7 @@ public class ClienteControlador {
 		return clienteDAO.listarClientes();
 	}
 
-	public Boolean insertartarCliente(ClienteDTO nuevoCliente) {
+	public Boolean insertarCliente(ClienteDTO nuevoCliente) {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		return clienteDAO.insertarClientes(nuevoCliente);
 	}

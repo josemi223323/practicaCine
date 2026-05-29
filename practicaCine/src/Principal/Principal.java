@@ -2,10 +2,6 @@ package Principal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Connection;
-import java.sql.SQLException;
-
-import utils.ConexionBBDD;
 import vista.VistaCliente;
 import vista.VistaPelicula;
 
@@ -14,7 +10,7 @@ public class Principal {
 		BufferedReader leer = new BufferedReader(new InputStreamReader(System.in));
 		boolean salir = false;
 		do {
-			System.out.println("1 Peliculas");
+			System.out.println("1 Peliculas\n2 Clientes");
 
 			int opcion = -1;
 			boolean datosOK = false;
