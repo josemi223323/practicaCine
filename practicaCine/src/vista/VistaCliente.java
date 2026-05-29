@@ -47,7 +47,7 @@ public class VistaCliente {
 		ClienteControlador clienteControlador = new ClienteControlador();
 		System.out.println("introduce los datos de la pelicula: ");
 		int idCliente = Lecturas.leerEntero("introduce el id de la pelicula que quieres borrar");
-		Boolean seEjecuto = clienteControlador.borrarPelicula(idCliente);
+		Boolean seEjecuto = clienteControlador.borrarCliente(idCliente);
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {

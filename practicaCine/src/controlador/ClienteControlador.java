@@ -22,7 +22,7 @@ public class ClienteControlador {
 		return clienteDAO.actualizarClientes(nuevoCliente);
 	}
 
-	public Boolean borrarPelicula(int idCliente) {
+	public Boolean borrarCliente(int idCliente) {
 		ClienteDAO clienteDAO = new ClienteDAO();
 		return clienteDAO.borrarClientes(idCliente);
 	}
