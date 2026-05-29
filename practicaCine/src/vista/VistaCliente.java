@@ -51,7 +51,7 @@ public class VistaCliente {
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
-			System.out.println("hubo un error al insertar los datos");
+			System.out.println("hubo un error al borrar los datos");
 		}
 	}
 
@@ -68,7 +68,7 @@ public class VistaCliente {
 		if(seEjecuto) {
 			System.out.println("los datos se actualizaron");
 		}else {
-			System.out.println("hubo un error al insertar los datos");
+			System.out.println("hubo un error al actualizar los datos");
 		}
 		
 	}
