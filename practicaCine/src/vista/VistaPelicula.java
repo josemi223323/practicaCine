@@ -96,9 +96,7 @@ public class VistaPelicula {
 	private void listar() {
 		PeliculaControlador controladorPelicula = new PeliculaControlador();
 		ArrayList<PeliculaDTO> peliculaDTO = controladorPelicula.listarPeliculas();
-		for(PeliculaDTO pelicula : peliculaDTO) {
-			System.out.println(pelicula.toString());
-		}
+		peliculaDTO.forEach(pelicula -> System.out.println(pelicula));
 		
 	}
 

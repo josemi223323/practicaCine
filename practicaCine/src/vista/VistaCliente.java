@@ -94,9 +94,7 @@ public class VistaCliente {
 	private void listarClientes() {
 		ClienteControlador clienteControlador = new ClienteControlador();
 		ArrayList<ClienteDTO> ListaClientes = clienteControlador.listarClientes();
-		for(ClienteDTO cliente: ListaClientes) {
-			System.out.println(cliente.toString());
-		}
+		ListaClientes.forEach(clientes -> System.out.println(clientes));
 	}
 
 	
